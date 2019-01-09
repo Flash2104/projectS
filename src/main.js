@@ -1,15 +1,17 @@
 import Vue from 'vue';
 import App from './App.vue';
-import VueRouter from 'vue-router';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 import ServiceCache from './services/ServiceCache';
+import router from './router';
+export const routes = router.getRouter();
 
-Vue.use(VueRouter)
+Vue.use(routes);
+
 Vue.config.productionTip = false;
- new Vue({
+new Vue({
   render: h => h(App),
-  VueRouter
+  routes
 }).$mount('#app')
 ServiceCache.initialize();
 

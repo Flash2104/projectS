@@ -1,8 +1,12 @@
 <template>
   <div class="left-nav">
-      <div v-for="item in getNavigationItems" :key="item.id">
-        {{item.name}}              
+        <router-view>
+      <div v-for="item in getNavigationItems" :key="item.url">
+        <router-link :to="item.url">
+          {{item.name}}
+        </router-link>           
       </div>
+      </router-view>
   </div>
 </template>
 
@@ -14,32 +18,28 @@ export default {
     getNavigationItems() {
       let data = [
           {
-            id: '1',
             title: 'Armory'
           },
           {
-            id: '2',
             title: 'People'
           },
           {
-            id: '3',
             title: 'Command'
           },
           {
-            id: '4',
             title: 'Calendar'
           }
       ];
       this.navigationItems = data.map((i) => {
         let result = {};
-        result.id = i.id;
         result.name = i.title;
         result.url = UrlStock.getLeftNavigationUrl(i.title);
         return result;
       });
       return this.navigationItems;
     }
-  }
+  },
+  
 }
 </script>
 

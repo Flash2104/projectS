@@ -1,9 +1,9 @@
 
 const leftNavUrls = {
-    'Armory': '/user/:id',
-    'People': '/people/:id',
-    'Command': '/command/:id',
-    'Calendar': '/calendar/:id'
+    'Armory': '/user/:userId',
+    'People': '/people/:userId',
+    'Command': '/command/:userId',
+    'Calendar': '/calendar/:userId'
 };
 
 export default {
